@@ -11,29 +11,29 @@ class Person {
         this.street = data.location.street;
         this.state = data.location.state;
         this.postCode = data.location.postcode;
-        this.dob = this.dob();
-        this.card = this.card();
-        this.modal = this.modal();
+        this.dob = this.birthFormat();
+        this.card = this.cardDiv();
+        this.modal = this.modalDiv();
     }
 
-    card() {
-        const cardDiv =
+    cardDiv() {
+        const cardElement =
         `<div class="card" js-data-id="${this.id}">
-            <div class="card-img-container">
-                <img class="card-img" src="${this.img}" alt="profile picture">
+            <div class="card-img-container" js-data-id="${this.id}">
+                <img class="card-img" js-data-id="${this.id}" src="${this.img}" alt="profile picture">
             </div>
-            <div class="card-info-container">
-                <h3 id="name" class="card-name cap">${this.name} ${this.lsName}</h3>
-                <p class="card-text">${this.email}</p>
-                <p class="card-text cap">${this.city}, ${this.state}</p>
+            <div class="card-info-container" js-data-id="${this.id}">
+                <h3 id="name" js-data-id="${this.id}" class="card-name cap">${this.name} ${this.lsName}</h3>
+                <p class="card-text" js-data-id="${this.id}">${this.email}</p>
+                <p class="card-text cap" js-data-id="${this.id}">${this.city}, ${this.state}</p>
             </div>
         </div>`;
-        gallery.innerHTML += cardDiv;
+        return cardElement;
     }
 
-    modal() {
-        const modalDiv =
-            `<div class="modal-container">
+    modalDiv() {
+        const modalElement =
+            `<div class="modal-container js-data-id="${this.id}">
                 <div class="modal">
                     <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
                     <div class="modal-info-container">
@@ -44,7 +44,7 @@ class Person {
                         <hr>
                         <p class="modal-text">${this.cellPhone}</p>
                         <p class="modal-text">${this.street}, ${this.city}, ${this.postCode}</p>
-                        <p class="modal-text">Birthday: 10/21/2015</p>
+                        <p class="modal-text">Birthday: ${this.dob}</p>
                     </div>
                 </div>
 
@@ -53,5 +53,12 @@ class Person {
                     <button type="button" id="modal-next" class="modal-next btn">Next</button>
                 </div>
             </div>`;
+        return modalElement;
+    }
+
+    birthFormat() {
+        const birth = this.data.dob.date;
+        const regexDob = /^(\d{4})\-(\d{2})\-(\d{2})(.*)$/;
+        return birth.replace(regexDob, '$2/$3/$1');
     }
 }
