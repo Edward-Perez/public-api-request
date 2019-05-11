@@ -57,7 +57,7 @@ function appendModal(jsDataId) {
 }
 
 /**
- * Appends search bar to the DOM / Adds key up listener to input
+ * Appends search bar to the DOM / Adds key up and click event listener to search bar
  */
 
 function searchBar() {
