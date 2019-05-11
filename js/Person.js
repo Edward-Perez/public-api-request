@@ -43,7 +43,7 @@ class Person {
                         <p class="modal-text cap">${this.city}</p>
                         <hr>
                         <p class="modal-text">${this.cellPhone}</p>
-                        <p class="modal-text">${this.street}, ${this.city}, ${this.postCode}</p>
+                        <p class="modal-text cap">${this.street}, ${this.state} ${this.postCode}</p>
                         <p class="modal-text">Birthday: ${this.dob}</p>
                     </div>
                 </div>

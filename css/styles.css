@@ -1,8 +1,8 @@
 /* ===================================== 
    Public API Request
 ======================================== */
-
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Unna');
 
 * {
 	box-sizing: border-box;
@@ -14,13 +14,15 @@ html, body {
 }
 
 body {
-    font-family: "Nunito", sans-serif;
     text-align: center;
     background: rgba(235, 235, 235, 0.9);
+    color: white;
 }
 
 header {
-    padding: 15px 5px 5px;
+    padding: 0px 5px 5px; 
+    background-color: #8860D0;
+    border-bottom: 3px groove #5680E9;
 }
 
 .header-inner-container {
@@ -28,37 +30,44 @@ header {
     margin: auto;
 }
 
+.header-text-container {
+    color: white;
+}
+
 header h1 {
-    font-size: 1.25em;
-    color: rgba(50, 50, 50, 0.9);
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5em;
+    color: white;
     margin-top: 35px;
+    animation: rotate .45s linear 1s 2 alternate;
+
 }
 
 .search-input {
     padding: 0.4rem 1rem;
     border: 1px solid rgba(200, 200, 200, 0.9);
     border-radius: 0.25rem 0 0 0.25rem ;
-    max-width: 20rem;
+    max-width: 15rem;
     transition: .4s ease-out;
     outline: none;
 }
 
 .search-input:active, .search-input:hover, .search-input:focus {
-    border: 1px solid rgba(50, 50, 50, 0.9);
+    border: 2px groove #5680E9;;
 }
 
 .search-submit {
     cursor: pointer;
     height: 33px;
-    background: rgba(245, 245, 245, 0.9);
-    border-radius: 0 0.25rem 0.25rem 0;
-    border: 1px solid rgba(200, 200, 200, 0.9);
+    background: transparent;
+    border-radius: 60%;
+    border: 1px groove #5680E9;
     transition: .4s ease-out;
     outline: none;
 }
 
 .search-submit:active, .search-submit:hover, .search-submit:focus {
-    background: rgba(255, 255, 255, 0.9);
+    background: #C1C8E4;
     border: 1px solid rgba(50, 50, 50, 0.9);
 }
 
@@ -75,6 +84,8 @@ header h1 {
     width: 100%;
     max-width: 1200px;
     margin: auto;
+    background-color: #C1C8E4;
+    padding-top: 20px;
 }
   
 .card {
@@ -87,9 +98,9 @@ header h1 {
     max-width: 360px;
     margin: 10px 10px 20px;
     padding: 10px;
-    background: rgba(245, 245, 245, 0.9);
+    background: linear-gradient(to bottom right,#8860D0,#5AB9EA);
     border-radius: 0.25em;
-    border: 1px solid rgba(50, 50, 50, 0.3);
+    border: 3px groove #5680E9;
     transition: .4s ease-out;
     overflow: hidden;
 }
@@ -98,6 +109,7 @@ header h1 {
     width: 95px;
     margin: 10px 15px auto 10px;
     border-radius: 50%;
+    border: 3px double #5680E9;
 }
 
 .card-info-container {
@@ -110,7 +122,7 @@ header h1 {
 
 .card-text {
     font-size: 0.9em;
-    color: rgba(50, 50, 50, 0.7);
+    color: white;
     margin: 7px auto;
     transition: .4s ease-out;
 }
@@ -140,10 +152,10 @@ header h1 {
     min-height: 415px;
     margin: 10px auto auto;
     padding-bottom: 15px;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 0.25em;
-    border: 1px solid rgba(100, 100, 100, 0.3);
-    transition: .4s ease-out;
+    background: #5680E9;
+    border-radius: 0.45em;
+    border: 3px solid #C1C8E4; 
+    transition: .8s ease-out;
 }
 
 .modal-close-btn {
@@ -151,17 +163,18 @@ header h1 {
     top: 15px;
     right: 15px;
     cursor: pointer;
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(0, 0, 0, 0.8);
+    color: black;
+    background: #84CEEB;
     outline: none;
-    border-radius: 0.25em;
-    border: 1px solid rgba(50, 50, 50, 0.3);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .modal-img {
     width: 150px;
     margin-top: 35px;
     border-radius: 50%;
+    border: 3px solid #C1C8E4;
 }
 
 .modal-name {
@@ -169,7 +182,7 @@ header h1 {
 }
 
 .modal-text {
-    color: rgba(50, 50, 50, 0.7);
+    color: white;
     margin: 10px;
 }
 
@@ -187,10 +200,8 @@ header h1 {
     width: 95%;
     max-width: 420px;
     padding: 10px 15px 15px;;
-    margin: 10px auto auto;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 0.25em;
-    border: 1px solid rgba(100, 100, 100, 0.3);
+    margin: 1px auto auto;
+    background: transparent;
 }
 
 
@@ -198,15 +209,15 @@ header h1 {
     display: inline-block;
     cursor: pointer;
     font-size: 0.85em;
+    font-weight: bold;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.9);
     padding: 0.75em 1.5em;
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(#84CEEB, #5680E9);
     border-radius: 0.35em;
     transition: .4s ease-out;
     outline: none;
   }
-  
 
 /* ===================================== 
    Media Queries
@@ -248,16 +259,34 @@ header h1 {
 @media (min-width: 1024px) {
 
     .card:hover {
-        background: rgba(255, 255, 255, 1);
+        background:  #5680E9;
         border: 1px solid rgba(50, 50, 50, 0.9);
     }
 
     .card:hover .card-text {
-        color: rgba(25, 25, 25, 1); 
+        color:white;
     }
 
     .btn:hover {
-        background: rgba(255, 255, 255, 1);
-        color: rgba(25, 25, 25, 1); 
+        background: #5680E9;
+        color: white;
     }
+}
+
+/* ===================================== 
+   Animations
+======================================== */
+
+@keyframes colorChange {
+    0% {background-color: #8860D0;}
+    33% {background-color: #5680E9;}
+    33% {background-color: #5AB9EA;}
+    100% {background-color: #84CEEB;}
+}
+
+@keyframes rotate {
+    0% {transform: rotateZ(5deg);}
+    25% {transform: rotateZ(-5deg);}
+    75% {transform: rotateZ(5deg);}
+    100% {transform: rotateZ(-5deg);}
 }
