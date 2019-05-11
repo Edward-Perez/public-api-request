@@ -1,8 +1,11 @@
-const randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us,nz,au';
+const randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us';
 const gallery = document.getElementById('gallery');
 const userData = [];
-
-
+/**
+ *  Appends HTML elements, add e.listener to append modal to DOM 
+ * @param {Array} - array contains each Person Class created from JSON data and stores into global var
+ */
+ 
 function initiate(results) {
     searchBar();
 
@@ -18,6 +21,11 @@ function initiate(results) {
         }
     })
 }
+
+/**
+ * Appends modal based on js-data-id attribute value from event trigger element
+ * @param {string} jsDataId - Value of js-data-id attribute is equivalent to the Class index position inside global var userData
+ */
 
 function appendModal(jsDataId) {
     let currentIndex = parseInt(jsDataId);
@@ -47,6 +55,10 @@ function appendModal(jsDataId) {
     })
 
 }
+
+/**
+ * Appends search bar to the DOM / Adds key up listener to input
+ */
 
 function searchBar() {
     const searchContainer = document.querySelector('.search-container');
@@ -84,12 +96,17 @@ function searchBar() {
     })
 }
 
+/**
+ * fetch retrieves data response, parse data to JSON, 
+ * Creates new Array, stores a new Person Class for each value 
+ * calls initiate function
+ */
 fetch(randomUserAPI)
     .then(response => response.json())
     .then(data => 
         data.results.map((person, index) => new Person(person, index)))
     .then(initiate)
-    .catch( err => console.log(err))
+    .catch( error => gallery.innerHTML = `<h3>Something went wrong, maybe refresh? ${error}</h3>`)
 
 
 

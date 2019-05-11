@@ -61,14 +61,14 @@ header h1 {
     height: 33px;
     background: transparent;
     border-radius: 60%;
-    border: 1px groove #5680E9;
+    border: 1px solid #8860D0;
     transition: .4s ease-out;
     outline: none;
 }
 
 .search-submit:active, .search-submit:hover, .search-submit:focus {
-    background: #C1C8E4;
-    border: 1px solid rgba(50, 50, 50, 0.9);
+    background: #8860D0;
+    border: 1px solid white;
 }
 
 

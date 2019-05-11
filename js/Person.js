@@ -15,7 +15,11 @@ class Person {
         this.card = this.cardDiv();
         this.modal = this.modalDiv();
     }
-
+    
+    /**
+     * Appends card Div with data
+     * @return {HTMLElement} - returns to this.card
+     */
     cardDiv() {
         const cardElement =
         `<div class="card" js-data-id="${this.id}">
@@ -31,6 +35,10 @@ class Person {
         return cardElement;
     }
 
+    /**
+     * Appends modal Div with data
+     * @return {HTMLElement} - returns to this.modal
+     */
     modalDiv() {
         const modalElement =
             `<div class="modal-container js-data-id="${this.id}">
@@ -56,6 +64,10 @@ class Person {
         return modalElement;
     }
 
+    /**
+     * Format birthday data to mm/dd/year
+     * @return {string} - returns to this.dob
+     */
     birthFormat() {
         const birth = this.data.dob.date;
         const regexDob = /^(\d{4})\-(\d{2})\-(\d{2})(.*)$/;
