@@ -57,7 +57,7 @@ function appendModal(jsDataId) {
 }
 
 /**
- * Appends search bar to the DOM / Adds key up and click event listener to search bar
+ * Appends search bar to the DOM / Adds key up and submit event listener to search bar
  */
 
 function searchBar() {
@@ -67,9 +67,9 @@ function searchBar() {
         <input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit">
      </form>`;
     const search = document.querySelector('.search-input');
-    const searchButton = document.querySelector('.search-submit');
 
-    searchButton.addEventListener('click', () => {
+    search.parentElement.addEventListener('submit', (e) => {
+        e.preventDefault();
         let searchVal = search.value.toLowerCase();
         gallery.innerHTML = '';
         userData.forEach(person => {
@@ -83,6 +83,9 @@ function searchBar() {
     })
     
     search.addEventListener('keyup', (e) => {
+        if(e.key == undefined) { 
+            return; 
+        }
         const userKey = e.key.toLowerCase();
         let searchVal = search.value.toLowerCase();
         const letterRegex = /^[a-z]$/;
