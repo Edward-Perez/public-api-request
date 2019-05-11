@@ -61,35 +61,47 @@ function appendModal(jsDataId) {
  */
 
 function searchBar() {
-    const searchContainer = document.querySelector('.search-container');
-    searchContainer.innerHTML = `
-    <form action="#" method="get">
+    document.querySelector('.search-container').innerHTML = 
+    `<form action="#" method="get">
         <input type="search" id="search-input" class="search-input" placeholder="Search...">
-        <input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit">
-    </form>`;
-    const search = searchContainer.firstElementChild.firstElementChild;
+        <input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit">
+     </form>`;
+    const search = document.querySelector('.search-input');
+    const searchButton = document.querySelector('.search-submit');
 
+    searchButton.addEventListener('click', () => {
+        let searchVal = search.value.toLowerCase();
+        gallery.innerHTML = '';
+        userData.forEach(person => {
+            if(person.name.search(searchVal) != -1 || person.lsName.search(searchVal) != -1 ) {
+                gallery.innerHTML += person.card;
+            }
+        })
+        if(gallery.innerHTML === '') {
+            gallery.innerHTML = '<h3>Sorry there was no match.</h3>';
+        }
+    })
+    
     search.addEventListener('keyup', (e) => {
         const userKey = e.key.toLowerCase();
-        const searchVal = search.value.toLowerCase();
+        let searchVal = search.value.toLowerCase();
         const letterRegex = /^[a-z]$/;
 
         if(letterRegex.test(userKey) || userKey == 'backspace') {
             search.placeholder = '';
             search.style.border = '1px solid rgba(200, 200, 200, 0.9)';
             gallery.innerHTML = '';
+
             userData.forEach(person => {
                 if(person.name.search(searchVal) != -1 || person.lsName.search(searchVal) != -1 ) {
                     gallery.innerHTML += person.card;
                 }
-            })
-            
+            })            
         } else if (!isNaN(userKey)) {
             search.style.border = '2px solid rgba(200, 0, 0, 0.9)';
             search.value = '';
             search.placeholder = 'Only letters please.';
         }
-
         if(gallery.innerHTML === '') {
             gallery.innerHTML = '<h3>Sorry there was no match.</h3>';
         }
