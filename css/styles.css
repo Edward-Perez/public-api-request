@@ -21,8 +21,8 @@ body {
 
 header {
     padding: 0px 5px 5px; 
-    background-color: #8860D0;
-    border-bottom: 3px groove #5680E9;
+    background-color: #5680E9;
+    border-bottom: 3px groove #5AB9EA;
 }
 
 .header-inner-container {
@@ -47,13 +47,13 @@ header h1 {
     padding: 0.4rem 1rem;
     border: 1px solid rgba(200, 200, 200, 0.9);
     border-radius: 0.25rem 0 0 0.25rem ;
-    max-width: 15rem;
-    transition: .4s ease-out;
+    width: 15rem;
+    transition: .5s ease-out;
     outline: none;
 }
 
-.search-input:active, .search-input:hover, .search-input:focus {
-    border: 2px groove #5680E9;;
+.search-input:focus {
+    width: 17rem;
 }
 
 .search-submit {
@@ -61,13 +61,10 @@ header h1 {
     height: 33px;
     background: transparent;
     border-radius: 60%;
-    border: 1px solid #8860D0;
-    transition: .4s ease-out;
     outline: none;
 }
 
 .search-submit:active, .search-submit:hover, .search-submit:focus {
-    background: #8860D0;
     border: 1px solid white;
 }
 
@@ -98,10 +95,10 @@ header h1 {
     max-width: 360px;
     margin: 10px 10px 20px;
     padding: 10px;
-    background: linear-gradient(to bottom right,#8860D0,#5AB9EA);
+    background-color: #5680E9;
+    border: 2px groove rgb(157, 178, 229);
     border-radius: 0.25em;
-    border: 3px groove #5680E9;
-    transition: .4s ease-out;
+    transition: .2s ease-out;
     overflow: hidden;
 }
 
@@ -109,7 +106,7 @@ header h1 {
     width: 95px;
     margin: 10px 15px auto 10px;
     border-radius: 50%;
-    border: 3px double #5680E9;
+    border: 2px double rgb(160, 178, 224);
 }
 
 .card-info-container {
@@ -164,9 +161,9 @@ header h1 {
     right: 15px;
     cursor: pointer;
     color: black;
-    background: #84CEEB;
+    background-color: transparent;
     outline: none;
-    border-radius: 50%;
+    border-radius: 25%;
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -213,11 +210,17 @@ header h1 {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.9);
     padding: 0.75em 1.5em;
-    background: linear-gradient(#84CEEB, #5680E9);
+    background-color: #5680E9;
     border-radius: 0.35em;
-    transition: .4s ease-out;
+    transition: .01s ease-out;
     outline: none;
   }
+.modal-btn-container .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: rgb(229, 229, 229) !important;
+    pointer-events:none;
+}
 
 /* ===================================== 
    Media Queries
@@ -258,19 +261,20 @@ header h1 {
 
 @media (min-width: 1024px) {
 
-    .card:hover {
-        background:  #5680E9;
+    .card:hover { 
+        background-color:  rgb(46, 163, 221);
+        border-bottom: 3px groove #5AB9EA;
         border: 1px solid rgba(50, 50, 50, 0.9);
     }
 
     .card:hover .card-text {
-        color:white;
-    }
-
+        /* color:white; */
+        width: 500px;
+    } 
+ 
     .btn:hover {
-        background: #5680E9;
-        color: white;
-    }
+        background-color: #84CEEB;
+    }  
 }
 
 /* ===================================== 
