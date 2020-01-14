@@ -14,12 +14,6 @@ class Modal {
     return div;
   }
 
-  element() {
-    const element = this.tag;
-    element.innerHTML = this.content();
-    return element;
-  }
-
   content() {
     const { disableNextButton, disablePrevButton } = this;
     const { name, img, email, location, dob, cell} = this.info;
@@ -43,6 +37,12 @@ class Modal {
           <button type="button" id="modal-prev" class="modal-prev btn" ${isPrevDisabled}>Prev</button>
           <button type="button" id="modal-next" class="modal-next btn" ${isNextDisabled}>Next</button>
         </div> `;
+  }
+  
+  element() {
+    const element = this.tag;
+    element.innerHTML = this.content();
+    return element;
   }
 
   remove() {

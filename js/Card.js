@@ -13,12 +13,6 @@ class Card {
     return tag;
   }
 
-  element() {
-    const element = this.tag;
-    element.innerHTML = this.content();
-    return element;
-  }
-
   content() {
     const { name, img, email, location } = this.info;
     return `
@@ -30,5 +24,11 @@ class Card {
         <p class="card-text">${email}</p>
         <p class="card-text cap">${location.city}, ${location.state}</p>
       </div> `;
+  }
+
+  element() {
+    const element = this.tag;
+    element.innerHTML = this.content();
+    return element;
   }
 }
