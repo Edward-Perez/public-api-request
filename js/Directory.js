@@ -50,7 +50,7 @@ class Directory {
     this.insertCards()
   }
 
-  // Used inside Modal Class to update Directory Class
+  // Used inside Modal and Card Class to update Directory Class
   showModal(id) {
     const container = document.querySelector('#gallery');
     const directoryMethod = this.showModal.bind(this);
